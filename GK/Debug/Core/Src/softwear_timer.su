@@ -1,0 +1,3 @@
+softwear_timer.c:15:6:setTimer	16	static
+softwear_timer.c:20:5:isTimer_timeout	16	static
+softwear_timer.c:28:6:timerRun	16	static

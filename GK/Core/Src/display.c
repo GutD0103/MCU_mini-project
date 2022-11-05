@@ -8,7 +8,7 @@
 #include "display.h"
 #include "main.h"
 #define MAX_LED  4
-int led_buffer [MAX_LED] ={8};
+int led_buffer [MAX_LED] ={1,2,3,4};
 void update7SEG ( int index ) {
 	switch ( index ) {
 		case 0:

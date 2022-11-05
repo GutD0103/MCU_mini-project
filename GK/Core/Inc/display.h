@@ -12,7 +12,7 @@
 #define MAX_LED 4
 
 void display7SEG(int num);
-void update7SEG ( int index ) ;
+void update7SEG (int index) ;
 void updateClockBuffer (int index, int value);
 
 

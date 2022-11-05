@@ -10,17 +10,17 @@
 #define TIME_FOR_DOUBLE_CLICK 50
 
 
-int KeyReg0[MAX_BUTTON] = {NORMAL_STATE};
-int KeyReg1[MAX_BUTTON] = {NORMAL_STATE};
-int KeyReg2[MAX_BUTTON] = {NORMAL_STATE};
-int KeyReg3[MAX_BUTTON] = {NORMAL_STATE};
+int KeyReg0[MAX_BUTTON] = {[0 ... MAX_BUTTON - 1] = NORMAL_STATE};
+int KeyReg1[MAX_BUTTON] = {[0 ... MAX_BUTTON - 1] = NORMAL_STATE};
+int KeyReg2[MAX_BUTTON] = {[0 ... MAX_BUTTON - 1] = NORMAL_STATE};
+int KeyReg3[MAX_BUTTON] = {[0 ... MAX_BUTTON - 1] = NORMAL_STATE};
 
 int counterButton[MAX_BUTTON] = {0};
 int counterDoubleClick[MAX_BUTTON] ={0};
 
 int flagButton_1s[MAX_BUTTON] = {0};
 int flagButton[MAX_BUTTON] = {0};
-int flagButton_Double_Click[MAX_BUTTON] = {-1,-1};
+int flagButton_Double_Click[MAX_BUTTON] = {[0 ... MAX_BUTTON - 1] = -1};
 
 
 int isButtonPRESS(int index){

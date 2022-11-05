@@ -16,7 +16,8 @@
 
 
 int isButtonPRESS(int index);
-int isButtonPRESS1s(int index);
+int isButtonPRESS3s(int index);
+int stillPRESS(int index);
 int isButtonDoubleClick(int index);
 void getKeyInput();
 

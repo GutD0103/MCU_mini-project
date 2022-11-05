@@ -14,11 +14,12 @@
 #include "display.h"
 
 #define INIT 0
-#define MODE_1 1
-#define MODE_2 2
-#define MODE_3 3
-#define MODE_4 4
+#define MODE_RESET 1
+#define MODE_INC 2
+#define MODE_DEC 3
+#define MODE_RUN 4
 
 extern int status;
+extern int counter;
 
 #endif /* INC_GLOBAL_H_ */

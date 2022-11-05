@@ -6,7 +6,7 @@
  */
 
 #include "button.h"
-#define TIME_FOR_KEY_PRESS 200
+#define TIME_FOR_KEY_PRESS 300
 #define TIME_FOR_DOUBLE_CLICK 50
 
 
@@ -20,8 +20,8 @@ int counterDoubleClick[MAX_BUTTON] ={0};
 
 int flagButton_1s[MAX_BUTTON] = {0};
 int flagButton[MAX_BUTTON] = {0};
-int flagButton_Double_Click[MAX_BUTTON] = {[0 ... MAX_BUTTON - 1] = -1};
-
+int flagButton_Double_Click[MAX_BUTTON] = {[0 ... MAX_BUTTON - 1] = 0};
+int stillPress[MAX_BUTTON] = {0};
 
 int isButtonPRESS(int index){
 	if(index >= MAX_BUTTON) return 0;
@@ -31,7 +31,7 @@ int isButtonPRESS(int index){
 	}
 	return 0;
 }
-int isButtonPRESS1s(int index){
+int isButtonPRESS3s(int index){
 	if(index >= MAX_BUTTON) return 0;
 	if(flagButton_1s[index] == 1){
 		flagButton_1s[index] = 0;
@@ -39,13 +39,8 @@ int isButtonPRESS1s(int index){
 	}
 	return 0;
 }
-int isButtonDoubleClick(int index){
-	if(index >= MAX_BUTTON) return 0;
-	if(flagButton_Double_Click[index] == 1){
-		flagButton_Double_Click[index] = -1;
-		return 1;
-	}
-	return 0;
+int stillPRESS(int index){
+	return stillPress[index];
 }
 
 void getKeyInput(){
@@ -64,26 +59,16 @@ void getKeyInput(){
 			if(KeyReg3[i] != KeyReg2[i]){
 				KeyReg3[i] = KeyReg2[i];
 				if(KeyReg2[i] == PRESS_STATE){
-					if(counterDoubleClick[i] > 0){
-						flagButton_Double_Click[i] ++;
-						counterDoubleClick[i] = TIME_FOR_DOUBLE_CLICK;
-					}else{
-						counterDoubleClick[i] = TIME_FOR_DOUBLE_CLICK;
-					}
 					flagButton[i] = 1;
+					stillPress[i] = 1;
 					counterButton[i] = TIME_FOR_KEY_PRESS;
-				}else if(KeyReg2[i] == NORMAL_STATE){
-					counterButton[i] = -1;
-					flagButton_1s[i] = 0;
+				}else{
+					stillPress[i] = 0;
 				}
 			}else{
 				counterButton[i]--;
-				counterDoubleClick[i] --;
 				if(counterButton[i] == 0){
 					flagButton_1s[i] = 1;
-				}
-				if(counterDoubleClick[i] == 0){
-					flagButton_Double_Click[i] = 0;
 				}
 			}
 		}

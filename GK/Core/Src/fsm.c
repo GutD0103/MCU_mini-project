@@ -19,35 +19,31 @@ void fsm_run(){
 	switch(status){
 		case INIT:
 			if(isButtonPRESS(0)){
-				status = MODE_RESET;
 				setTimer(0, TIME_RUN);
+				status = MODE_RESET;
 			}
 			if(isButtonPRESS(1)){
-				status = MODE_INC;
 				setTimer(0, TIME_RUN);
 				counter ++;
+				status = MODE_INC;
 			}
 			if(isButtonPRESS(2)){
-				status = MODE_DEC;
 				setTimer(0, TIME_RUN);
 				counter --;
+				status = MODE_DEC;
 			}
 			break;
 		case MODE_RESET:
 			counter = 0;
-			if(isTimer_timeout(0)){
-				status = MODE_RUN;
-				setTimer(1, TIME_COUNTER);
-				temp = counter;
-			}
+			temp = 0;
+			setTimer(0, 0);
+			setTimer(1, 0);
 			if(isButtonPRESS(1)){
+				setTimer(0, TIME_RUN);
 				status = MODE_INC;
-				setTimer(0, TIME_RUN);
-				counter ++;
 			}else if(isButtonPRESS(2)){
-				status = MODE_DEC;
 				setTimer(0, TIME_RUN);
-				counter --;
+				status = MODE_DEC;
 			}
 			break;
 		case MODE_INC:
@@ -55,9 +51,9 @@ void fsm_run(){
 				counter = 0;
 			}
 			if(isTimer_timeout(0)){
-				status = MODE_RUN;
 				setTimer(1, TIME_COUNTER);
 				temp = counter;
+				status = MODE_RUN;
 			}
 			if(stillPRESS(1)){
 				setTimer(0, TIME_RUN);
@@ -76,15 +72,11 @@ void fsm_run(){
 			if(isButtonPRESS(1)){
 				counter ++;
 			}else if(isButtonPRESS(0)){
+				setTimer(0, TIME_RUN);
 				status = MODE_RESET;
-				setTimer(0, TIME_RUN);
 			}else if(isButtonPRESS(2)){
-				status = MODE_DEC;
 				setTimer(0, TIME_RUN);
-				counter --;
-				if(counter < 0){
-					counter = 9;
-				}
+				status = MODE_DEC;
 			}
 			break;
 		case MODE_DEC:
@@ -92,9 +84,9 @@ void fsm_run(){
 				counter = 9;
 			}
 			if(isTimer_timeout(0)){
-				status = MODE_RUN;
 				setTimer(1, TIME_COUNTER);
 				temp = counter;
+				status = MODE_RUN;
 			}
 			if(stillPRESS(2)){
 				setTimer(0, TIME_RUN);
@@ -113,15 +105,11 @@ void fsm_run(){
 			if(isButtonPRESS(2)){
 				counter --;
 			}else if(isButtonPRESS(0)){
+				setTimer(0, TIME_RUN);
 				status = MODE_RESET;
-				setTimer(0, TIME_RUN);
 			}else if(isButtonPRESS(1)){
-				status = MODE_INC;
 				setTimer(0, TIME_RUN);
-				counter ++;
-				if(counter > 9){
-					counter = 0;
-				}
+				status = MODE_INC;
 			}
 			break;
 		case MODE_RUN:
@@ -130,21 +118,19 @@ void fsm_run(){
 					counter --;
 					setTimer(1, TIME_COUNTER);
 				}
-			}else{
-				status = INIT;
 			}
 			if(isButtonPRESS(0)){
+				setTimer(0, TIME_RUN);
+				counter = temp;
 				status = MODE_RESET;
-				setTimer(0, TIME_RUN);
-				counter = temp;
 			}else if(isButtonPRESS(1)){
+				setTimer(0, TIME_RUN);
+				counter = temp;
 				status = MODE_INC;
-				setTimer(0, TIME_RUN);
-				counter = temp;
 			}else if(isButtonPRESS(2)){
-				status = MODE_DEC;
 				setTimer(0, TIME_RUN);
 				counter = temp;
+				status = MODE_DEC;
 			}
 			break;
 		default:

@@ -1,4 +1,5 @@
-button.c:26:5:isButtonPRESS	16	static
-button.c:34:5:isButtonPRESS3s	16	static
-button.c:42:5:stillPRESS	16	static
-button.c:46:6:getKeyInput	16	static
+button.c:26:6:clearButton	16	static
+button.c:32:5:isButtonPRESS	16	static
+button.c:40:5:isButtonPRESS3s	16	static
+button.c:48:5:stillPRESS	16	static
+button.c:52:6:getKeyInput	16	static

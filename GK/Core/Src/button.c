@@ -23,6 +23,12 @@ int flagButton[MAX_BUTTON] = {0};
 int flagButton_Double_Click[MAX_BUTTON] = {[0 ... MAX_BUTTON - 1] = 0};
 int stillPress[MAX_BUTTON] = {0};
 
+void clearButton(){
+	for(int i = 0; i < MAX_BUTTON; i++){
+		flagButton[i] = 0;
+	}
+}
+
 int isButtonPRESS(int index){
 	if(index >= MAX_BUTTON) return 0;
 	if(flagButton[index] == 1){

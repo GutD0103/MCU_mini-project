@@ -18,7 +18,7 @@
 int isButtonPRESS(int index);
 int isButtonPRESS3s(int index);
 int stillPRESS(int index);
-int isButtonDoubleClick(int index);
+void clearButton();
 void getKeyInput();
 
 #endif /* INC_BUTTON_H_ */

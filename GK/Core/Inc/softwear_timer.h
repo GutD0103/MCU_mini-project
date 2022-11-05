@@ -13,6 +13,7 @@
 extern int timer_flag[MAX_TIMER];
 
 void setTimer(int index, int duration);
+void clearTimer();
 int isTimer_timeout(int index);
 void timerRun();
 

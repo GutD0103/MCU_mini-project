@@ -11,3 +11,5 @@ Trong dự án này, một nút nhấn được coi là nhấn giữ, nếu nó 
 chớp tắt mỗi giây.
 
 Link video demo: https://drive.google.com/file/d/1a-LBAfdF1Pr5F7py8kANA1nPoc8uPTqa/view?usp=sharing
+
+Link báo cáo chi tiết : https://drive.google.com/file/d/1Rk1d4iOGgrzLiyL5_ywu_k90l-MEW2SX/view?usp=sharing

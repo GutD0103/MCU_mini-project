@@ -9,4 +9,5 @@ kiện cần phải xử lý cho các nút nhấn, là nhấn thường và nh�
 Trong dự án này, một nút nhấn được coi là nhấn giữ, nếu nó giữ nguyên trạng thái đó trong 3 giây liên tiếp.
 - Đèn LED D1 được dùng để theo dõi hoạt động của hệ thống, nó sẽ luân phiên
 chớp tắt mỗi giây.
+
 Link video demo: https://drive.google.com/file/d/1a-LBAfdF1Pr5F7py8kANA1nPoc8uPTqa/view?usp=sharing
